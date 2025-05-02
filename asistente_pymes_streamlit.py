@@ -80,7 +80,23 @@ def guardar_diagnostico(data):
 
 # Interfaz
 st.title("Asistente de Diagnóstico para PyMEs")
+modo_admin = st.sidebar.checkbox("🔐 Modo administrador")
 
+if modo_admin:
+    pwd = st.sidebar.text_input("Contraseña de administrador", type="password")
+    if pwd == "admin123":
+        st.subheader("Panel de Resumen")
+        if os.path.exists("registros_pymes.csv"):
+            df_admin = pd.read_csv("registros_pymes.csv")
+            st.dataframe(df_admin)
+            resumen = df_admin.groupby(["Municipio", "Nivel de Riesgo"]).size().unstack(fill_value=0)
+            st.subheader("Resumen por Municipio y Nivel de Riesgo")
+            st.dataframe(resumen)
+        else:
+            st.info("Aún no hay registros.")
+    else:
+        st.warning("Contraseña incorrecta.")
+else:
 acepta = st.checkbox("He leído y acepto el aviso de privacidad")
 if acepta:
     nombre_empresa = st.text_input("Nombre de la empresa")
