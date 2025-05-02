@@ -61,11 +61,11 @@ def guardar_diagnostico(data):
 
 def obtener_recomendacion(nivel):
     if nivel == "Bajo":
-        return "✅ Riesgo bajo. Continúe con su estrategia actual y explore nuevas oportunidades de mercado."
+        return " Riesgo bajo. Continúe con su estrategia actual y explore nuevas oportunidades de mercado."
     elif nivel == "Medio":
-        return "⚠️Riesgo medio. Fortalezca su base de clientes y considere implementar herramientas digitales."
+        return "Riesgo medio. Fortalezca su base de clientes y considere implementar herramientas digitales."
     else:
-        return "🚨Riesgo alto. Revise su estructura financiera, reduzca deuda y busque asesoría externa."
+        return "Riesgo alto. Revise su estructura financiera, reduzca deuda y busque asesoría externa."
 
 # --------------------------
 # INTERFAZ STREAMLIT
