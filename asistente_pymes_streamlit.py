@@ -47,14 +47,10 @@ def obtener_recomendacion_detallada(nivel):
         )
     else:
         return (
-            "1. Diagnostica tus costos y elimina lo no esencial.
-"
-            "2. Enfócate en productos o servicios más rentables.
-"
-            "3. Busca apoyo externo: incubadoras, universidades, gobierno.
-"
-            "4. Aumenta visibilidad con promociones digitales.
-"
+            "1. Diagnostica tus costos y elimina lo no esencial.\n"
+            "2. Enfócate en productos o servicios más rentables.\n"
+            "3. Busca apoyo externo: incubadoras, universidades, gobierno.\n"
+            "4. Aumenta visibilidad con promociones digitales.\n"
             "5. Considera alianzas estratégicas con negocios compatibles."
         )
 
