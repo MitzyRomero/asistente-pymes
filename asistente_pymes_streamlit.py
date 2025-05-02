@@ -31,16 +31,12 @@ niveles = {0: "Bajo", 1: "Medio", 2: "Alto"}
 def obtener_recomendacion_detallada(nivel):
     if nivel == "Bajo":
         return (
-            "1. Consolida lo que ya funciona: protege tus fortalezas actuales.
-"
-            "2. Diversifica tu oferta: explora nuevas líneas complementarias.
-"
-            "3. Invierte en innovación gradual: usa herramientas digitales accesibles.
-"
-            "4. Mide tu salud financiera mensualmente.
-"
-            "5. Revisa indicadores clave del mercado local una vez al mes."
-        )
+    "1. Consolida lo que ya funciona: protege tus fortalezas actuales.\n"
+    "2. Diversifica tu oferta: explora nuevas líneas complementarias.\n"
+    "3. Invierte en innovación gradual: usa herramientas digitales accesibles.\n"
+    "4. Mide tu salud financiera mensualmente.\n"
+    "5. Revisa indicadores clave del mercado local una vez al mes."
+)
     elif nivel == "Medio":
         return (
             "1. Revisa tu flujo de caja y controla gastos.
