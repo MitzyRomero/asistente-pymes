@@ -30,35 +30,27 @@ niveles = {0: "Bajo", 1: "Medio", 2: "Alto"}
 
 def obtener_recomendacion_detallada(nivel):
     if nivel == "Bajo":
-       return (
-    "1. Consolida lo que ya funciona: protege tus fortalezas actuales.\n"
-    "2. Diversifica tu oferta: explora nuevas líneas complementarias.\n"
-    "3. Invierte en innovación gradual: usa herramientas digitales accesibles.\n"
-    "4. Mide tu salud financiera mensualmente.\n"
-    "5. Revisa indicadores clave del mercado local una vez al mes."
-)
+        return (
+            "1. Consolida lo que ya funciona: protege tus fortalezas actuales.\n"
+            "2. Diversifica tu oferta: explora nuevas líneas complementarias.\n"
+            "3. Invierte en innovación gradual: usa herramientas digitales accesibles.\n"
+            "4. Mide tu salud financiera mensualmente.\n"
+            "5. Revisa indicadores clave del mercado local una vez al mes."
+        )
     elif nivel == "Medio":
         return (
-            "1. Revisa tu flujo de caja y controla gastos.
-"
-            "2. Fortalece la captación de clientes con promociones o fidelización.
-"
-            "3. Mejora tu presencia digital (Google, redes sociales).
-"
-            "4. Automatiza procesos administrativos básicos.
-"
+            "1. Revisa tu flujo de caja y controla gastos.\n"
+            "2. Fortalece la captación de clientes con promociones o fidelización.\n"
+            "3. Mejora tu presencia digital (Google, redes sociales).\n"
+            "4. Automatiza procesos administrativos básicos.\n"
             "5. Busca apoyo en programas locales para PyMEs."
         )
     else:
         return (
-            "1. Diagnostica tus costos y elimina lo no esencial.
-"
-            "2. Enfócate en productos o servicios más rentables.
-"
-            "3. Busca apoyo externo: incubadoras, universidades, gobierno.
-"
-            "4. Aumenta visibilidad con promociones digitales.
-"
+            "1. Diagnostica tus costos y elimina lo no esencial.\n"
+            "2. Enfócate en productos o servicios más rentables.\n"
+            "3. Busca apoyo externo: incubadoras, universidades, gobierno.\n"
+            "4. Aumenta visibilidad con promociones digitales.\n"
             "5. Considera alianzas estratégicas con negocios compatibles."
         )
 
@@ -72,8 +64,7 @@ def generar_pdf(nombre_empresa, municipio, nivel, recomendacion):
     pdf.cell(200, 10, txt=f"Municipio: {municipio}", ln=True)
     pdf.cell(200, 10, txt=f"Nivel de riesgo detectado: {nivel}", ln=True)
     pdf.ln(10)
-    pdf.multi_cell(0, 10, txt="Recomendación detallada:
-" + recomendacion)
+    pdf.multi_cell(0, 10, txt="Recomendación detallada:\n" + recomendacion.replace("\n", "\n"))
     ruta = os.path.join("/tmp", f"Informe_{nombre_empresa.replace(' ', '_')}.pdf")
     pdf.output(ruta)
     return ruta
@@ -134,10 +125,10 @@ if acepta:
     if st.button("Obtener Diagnóstico"):
         pred = model.predict(entrada)[0]
         nivel = niveles[pred]
-        recomendacion = obtener_recomendacion_detallada(nivel)
+        recomendacion = obtener_recomendacion_detallada(nivel).replace("\n", "\n")
         st.success(f"Nivel de riesgo detectado: **{nivel}**")
         st.text("Recomendación detallada:")
-        st.code(recomendacion)
+        st.code(recomendacion.replace("\n", "\n"))
 
         df_guardar = pd.DataFrame([{
             "Empresa": nombre_empresa,
