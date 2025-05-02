@@ -39,14 +39,10 @@ def obtener_recomendacion_detallada(nivel):
 )
     elif nivel == "Medio":
         return (
-            "1. Revisa tu flujo de caja y controla gastos.
-"
-            "2. Fortalece la captación de clientes con promociones o fidelización.
-"
-            "3. Mejora tu presencia digital (Google, redes sociales).
-"
-            "4. Automatiza procesos administrativos básicos.
-"
+            "1. Revisa tu flujo de caja y controla gastos.\n"
+            "2. Fortalece la captación de clientes con promociones o fidelización.\n"
+            "3. Mejora tu presencia digital (Google, redes sociales).\n"
+            "4. Automatiza procesos administrativos básicos.\n"
             "5. Busca apoyo en programas locales para PyMEs."
         )
     else:
