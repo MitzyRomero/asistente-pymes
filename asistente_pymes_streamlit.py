@@ -64,8 +64,7 @@ def generar_pdf(nombre_empresa, municipio, nivel, recomendacion):
     pdf.cell(200, 10, txt=f"Municipio: {municipio}", ln=True)
     pdf.cell(200, 10, txt=f"Nivel de riesgo detectado: {nivel}", ln=True)
     pdf.ln(10)
-    pdf.multi_cell(0, 10, txt="Recomendación detallada:
-" + recomendacion)
+    pdf.multi_cell(0, 10, txt=f"Recomendación:\n{recomendacion}")
     ruta = os.path.join("/tmp", f"Informe_{nombre_empresa.replace(' ', '_')}.pdf")
     pdf.output(ruta)
     return ruta
